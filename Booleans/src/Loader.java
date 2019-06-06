@@ -8,7 +8,7 @@ public class Loader
         int eggsCount = 5; // items
         int sugarAmount = 15; // g
         int oilAmount = 30; // ml
-        int appleCount = 8;
+        int appleCount = 1;
 
         Boolean isPancakes = false;
         Boolean isOmelette = false;

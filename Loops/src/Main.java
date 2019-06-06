@@ -11,7 +11,7 @@ public class Main {
         for (int i = MIN_NUMBER_1; i <= MAX_NUMBER_1 ; i++) {
             System.out.println("Ticket № " + i);
         }
-        System.out.println();
+        System.out.println("==============================================");
         int numberTicket = MIN_NUMBER_2;
         while(numberTicket <= MAX_NUMBER_2) {
             System.out.println("Ticket № " + numberTicket);

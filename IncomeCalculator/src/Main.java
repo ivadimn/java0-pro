@@ -19,8 +19,13 @@ public class Main
 
     public static void main(String[] args)
     {
+        double minIncome = (minInvestmentsAmount + (1 - mainTaxPercent) * calculateFixedCharges()) /
+                ((1 - managerPercent) * (1 - mainTaxPercent));
+        System.out.println("Начиная с суммы " + minIncome +  " компания может инвестировать");
         while(true)
         {
+
+
             System.out.println("Введите сумму доходов компании за месяц " +
                 "(от 200 до 900 тысяч рублей): ");
             int income = (new Scanner(System.in)).nextInt();
@@ -28,6 +33,8 @@ public class Main
             if(!checkIncomeRange(income)) {
                 continue;
             }
+
+            //
 
             double managerSalary = income * managerPercent;
             double pureIncome = income - managerSalary -
