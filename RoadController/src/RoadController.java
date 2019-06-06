@@ -10,7 +10,7 @@ public class RoadController
     //переменная типа int
     private static int passengerCarMaxHeight = 2000; // mm
     //переменная типа int
-    private static int controllerMaxHeight = 4000; // mm
+    private static int controllerMaxHeight = 3500; // mm
 
     //переменная типа int
     private static int passengerCarPrice = 100; // RUB
@@ -72,14 +72,16 @@ public class RoadController
             //Грузовой автомобиль
             if (weight > passengerCarMaxWeight)
             {
-                price = passengerCarPrice;
+                //здесь ошибка
+                price = cargoCarPrice; //passengerCarPrice;
                 if (car.hasVehicle) {
                     price = price + vehicleAdditionalPrice;
                 }
             }
             //Легковой автомобиль
             else {
-                price = cargoCarPrice;
+                //здесь была ошибка
+                price = passengerCarPrice;
             }
         }
         else {
