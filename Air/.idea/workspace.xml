@@ -3,11 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="00083593-25e3-4b87-b029-47f0e2d4cfd6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Loader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Loader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Cat/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Cat/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Cat/out/artifacts/Cat_jar/Cat.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../Cat/out/artifacts/Cat_jar/Cat.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Cat/out/production/Cat/Cat.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Cat/out/production/Cat/Cat.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Cat/src/Cat.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Cat/src/Cat.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -108,7 +105,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -156,9 +153,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="157" y="17" width="1366" height="741" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25341427" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2572079" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
