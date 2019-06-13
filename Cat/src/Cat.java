@@ -70,6 +70,10 @@ public class Cat
         Cat clone = null;
         if (isLive()) {
             clone = new Cat(this.weight, this.originWeight, this.name);
+            clone.massFeed = this.massFeed;
+            clone.status = this.status;
+            clone.color = this.color;
+
         }
         else {
             System.out.println(" Из трупа клон не создать ...");
