@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d2d7286c-0bd0-438d-93b4-431914f9e437" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/Loader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Loader.java" afterDir="false" />
+    <list default="true" id="917faa2d-98b5-4a2b-a8ae-d80f5dbfa53d" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../Fio01/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Fio01/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Fio01/out/production/Fio01/Loader.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Fio01/out/production/Fio01/Loader.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Fio01/src/Loader.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Fio01/src/Loader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../StringExperiments/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../StringExperiments/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../StringExperiments/out/production/StringExperiments/Loader.class" beforeDir="false" afterPath="$PROJECT_DIR$/../StringExperiments/out/production/StringExperiments/Loader.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../StringExperiments/src/Loader.java" beforeDir="false" afterPath="$PROJECT_DIR$/../StringExperiments/src/Loader.java" afterDir="false" />
@@ -22,8 +24,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Loader.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" column="10" selection-start-line="14" selection-start-column="10" selection-end-line="14" selection-end-column="10" />
+            <state relative-caret-position="195">
+              <caret line="13" selection-start-line="13" selection-end-line="13" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -50,13 +52,6 @@
       </list>
     </option>
   </component>
-  <component name="ProjectConfigurationFiles">
-    <option name="files">
-      <list>
-        <option value="$PROJECT_DIR$/.idea/vcs.xml" />
-      </list>
-    </option>
-  </component>
   <component name="ProjectFrameBounds">
     <option name="width" value="1920" />
     <option name="height" value="1053" />
@@ -67,29 +62,25 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
-              <item name="Fio01" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Fio01" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Fio01" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Fio01" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Phone" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Phone" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Phone" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553752944154" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -112,7 +103,7 @@
     </configuration>
     <configuration name="Loader" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Loader" />
-      <module name="Fio01" />
+      <module name="Phone" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -160,18 +151,18 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="d2d7286c-0bd0-438d-93b4-431914f9e437" name="Default Changelist" comment="" />
-      <created>1553866775951</created>
+      <changelist id="917faa2d-98b5-4a2b-a8ae-d80f5dbfa53d" name="Default Changelist" comment="" />
+      <created>1553752532527</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1553866775951</updated>
+      <updated>1553752532527</updated>
     </task>
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1053" extended-state="0" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2633547" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16826923" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -180,8 +171,8 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32975295" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39957035" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32867885" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -202,8 +193,8 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/Loader.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="10" selection-start-line="14" selection-start-column="10" selection-end-line="14" selection-end-column="10" />
+        <state relative-caret-position="195">
+          <caret line="13" selection-start-line="13" selection-end-line="13" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

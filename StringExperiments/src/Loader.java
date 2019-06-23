@@ -1,45 +1,26 @@
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Loader
 {
-    public static final String DIGITS = "0123456789";
-
     public static void main(String[] args)
     {
-        String text = "Вася заработал 15005 рублей, Петя - 7563 рубля, а Маша - 30000 рублей";
+        //подсчитать сумму заработков
+        String text = "Вася заработал 5300 рублей, Петя -7500 рубля, а Маша - 13000 рублей";
+        String[] salary1 = text.replaceAll("[^0-9]+", " ").trim().split(" ");
+        int summa1 = 0;
+        for (int i = 0; i < salary1.length; i++) {
+            summa1 += Integer.parseInt(salary1[i]);
+        }
+        System.out.println("Общий заработок 1 - " + summa1);
 
-        int totalSumma = 0;
-        int index = 0;
-        while(index < text.length() ) {
-            if (DIGITS.indexOf(text.charAt(index)) >= 0) {
-                int startIndex = index;
-                while(DIGITS.indexOf(text.charAt(++index)) >= 0)
-                {
-                    ;
-                }
-                int endIndex = index;
-                totalSumma += Integer.parseInt(text.substring(startIndex, endIndex).trim());
-                break;
-            }
-            else {
-                index++;
-            }
+        //Второй способ
+        int summa2 = 0;
+        Pattern pattern = Pattern.compile("[0-9]+");
+        Matcher matcher = pattern.matcher(text);
+        while(matcher.find()) {
+            summa2 += Integer.parseInt(matcher.group());
         }
-        index = text.length() - 1;
-        while(index >= 0) {
-            if (DIGITS.lastIndexOf(text.charAt(index)) >= 0) {
-                int endIndex = index + 1;
-                while(DIGITS.lastIndexOf(text.charAt(--index)) >= 0)
-                {
-                    ;
-                }
-                int startIndex = index;
-                totalSumma += Integer.parseInt(text.substring(startIndex, endIndex).trim());
-                break;
-            }
-            else {
-                index--;
-            }
-        }
-        System.out.println("Вася и Маша заработали - " + totalSumma);
+        System.out.println("Общий заработок 2 - " + summa2);
     }
 }

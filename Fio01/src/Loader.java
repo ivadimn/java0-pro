@@ -12,7 +12,8 @@ public class Loader {
 
         System.out.println("Введите Фамилию Имя Отчество :");
         String fullName = new BufferedReader(new InputStreamReader(System.in)).readLine().trim();
-        String [] fio = splitFullName(fullName);
+        //String [] fio = splitFullName(fullName);
+        String[] fio = fullName.split("[\\d\\s,.|?:;]+");
 
         switch(fio.length) {
             case 0:
