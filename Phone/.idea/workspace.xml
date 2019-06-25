@@ -2,12 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="917faa2d-98b5-4a2b-a8ae-d80f5dbfa53d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../Fio02/Fio02.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Fio01/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Fio01/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Fio01/out/production/Fio01/Loader.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Fio01/out/production/Fio01/Loader.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Fio01/src/Loader.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Fio01/src/Loader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../StringExperiments/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../StringExperiments/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../StringExperiments/out/production/StringExperiments/Loader.class" beforeDir="false" afterPath="$PROJECT_DIR$/../StringExperiments/out/production/StringExperiments/Loader.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../StringExperiments/src/Loader.java" beforeDir="false" afterPath="$PROJECT_DIR$/../StringExperiments/src/Loader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Words/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Words/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -53,8 +52,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="width" value="1920" />
-    <option name="height" value="1053" />
+    <option name="width" value="1366" />
+    <option name="height" value="741" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -62,8 +61,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -75,6 +72,8 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -160,9 +159,9 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1920" height="1053" extended-state="0" />
+    <frame x="0" y="0" width="1366" height="741" extended-state="0" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16826923" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1707132" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -171,7 +170,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32867885" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3279483" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
