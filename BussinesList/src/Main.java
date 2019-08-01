@@ -96,13 +96,13 @@ public class Main {
 
     public static void printList() {
         for (int i = 0; i < bussinesList.size(); i++) {
-            System.out.println(i + " - " + bussinesList.get(i));
+            System.out.println((i + 1) + " - " + bussinesList.get(i));
         }
     }
 
     public static int getIndex(String s) {
         try {
-            return Integer.parseInt(s);
+            return Integer.parseInt(s) - 1 ;
         }
         catch (NumberFormatException e) {
             return -1;
