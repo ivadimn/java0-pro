@@ -8,8 +8,8 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
         String input;
-        System.out.println("Список , доступные команды : ");
-        System.out.println("ADD 'адрес электронной почты'");
+        System.out.println("Список email аджресов, доступные команды : ");
+        System.out.println("ADD 'адрес электронной почты' - добавить email адрес");
         System.out.println("LIST");
         System.out.println("exit");
 
@@ -22,14 +22,34 @@ public class Main {
             }
             String[] params = input.split("\\s+");
             if (params[0].equalsIgnoreCase("exit")) break;
+            if (params[0].equalsIgnoreCase("LIST")) {
+                printList();
+                continue;
+            }
             if (params.length < 2) {
                 continue;
             }
             if (params[0].equalsIgnoreCase("ADD")) {
-                //addBussines(params);
-                continue;
+                if (isValidEmail(params[1])) {
+                    emailList.add(params[1]);
+                }
+                else {
+                    System.out.println("Не правильный email адрес");
+                }
             }
+        }
+    }
 
+    public static boolean isValidEmail(String em) {
+        int index = em.indexOf("@");
+        if (index < 0) return false;
+        String dns = em.substring(index + 1);
+        return dns.indexOf(".") > 0;
+    }
+
+    public static void printList() {
+        for (String em : emailList) {
+            System.out.println(em);
         }
     }
 }
