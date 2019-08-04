@@ -2,6 +2,8 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.HashSet;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Main {
     static HashSet<String> emailList = new HashSet<>();
@@ -27,11 +29,13 @@ public class Main {
                 continue;
             }
             if (params.length < 2) {
+                System.out.println("Ошибка ввода");
                 continue;
             }
             if (params[0].equalsIgnoreCase("ADD")) {
                 if (isValidEmail(params[1])) {
                     emailList.add(params[1]);
+                    System.out.println("Добавлено.");
                 }
                 else {
                     System.out.println("Не правильный email адрес");
@@ -44,7 +48,9 @@ public class Main {
         int index = em.indexOf("@");
         if (index < 0) return false;
         String dns = em.substring(index + 1);
-        return dns.indexOf(".") > 0;
+        Pattern pattern = Pattern.compile("[a-zA-Z0-9-_]+\\.[a-z]{2,4}");
+        Matcher matcher = pattern.matcher(dns);
+        return matcher.matches();
     }
 
     public static void printList() {
