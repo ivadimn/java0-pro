@@ -6,32 +6,29 @@ import java.util.Date;
 
 public class DepositAccount extends Account {
 
-    private Calendar lastDeposit = Calendar.getInstance();
+    private Calendar dateWithdraw;
 
     public DepositAccount(double balance) {
         super(balance);
-        lastDeposit.setTime(new Date());
-        //lastDeposit.set(2019, Calendar.JULY, 1);
+        dateWithdraw  = Calendar.getInstance();;
+        //dateWithdraw.set(2019, Calendar.JULY, 1);
+        dateWithdraw.add(Calendar.MONTH, 1);
     }
 
     @Override
     public void deposit(double summa) {
         super.deposit(summa);
-        lastDeposit.setTime(new Date());
+        dateWithdraw.add(Calendar.MONTH, 1);
     }
 
     @Override
     public void withdraw(double summa) {
-        Calendar dateWithdraw = Calendar.getInstance();
-        int dayOfMonth = 31;
-        dateWithdraw.add(Calendar.DAY_OF_YEAR, -dayOfMonth);
-        if (dateWithdraw.after(lastDeposit)) {
+        Calendar today = Calendar.getInstance();
+        if (today.after(dateWithdraw)) {
             super.withdraw(summa);
         }
         else {
             System.out.println("С момента последнего внесения средств прошло менее месяца! ");
-            dateWithdraw.setTime(lastDeposit.getTime());
-            dateWithdraw.add(Calendar.DAY_OF_YEAR, dayOfMonth);
             System.out.println("Ближайшая возможная дата снятия средтв - " +
                     new SimpleDateFormat("dd.MM.yyyy г.").format(dateWithdraw.getTime()));
         }
