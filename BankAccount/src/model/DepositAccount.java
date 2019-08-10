@@ -18,6 +18,7 @@ public class DepositAccount extends Account {
     @Override
     public void deposit(double summa) {
         super.deposit(summa);
+        dateWithdraw.setTime(new Date());
         dateWithdraw.add(Calendar.MONTH, 1);
     }
 
