@@ -2,7 +2,7 @@ package model;
 
 public class Account {
 
-    protected double balance;
+    private double balance;
 
     public Account(double balance) {
         this.balance = balance;
