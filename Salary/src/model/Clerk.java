@@ -1,6 +1,6 @@
 package model;
 
-public class Clerk extends Manager implements Emploee {
+public class Clerk extends Manager {
 
     public Clerk(String firstName, String secondName, String middleName, int salary) {
         super(firstName, secondName, middleName, salary);

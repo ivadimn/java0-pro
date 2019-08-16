@@ -1,6 +1,6 @@
 package model;
 
-public class SalesManager extends Manager implements Emploee {
+public class SalesManager extends Manager {
 
     private int interestRate = 5;
 
@@ -11,12 +11,12 @@ public class SalesManager extends Manager implements Emploee {
     //здесь увеличение суммы проданного конкретным менежером
     @Override
     public void setContribution() {
-        increaseContribution(5000 + Manager.getCValue(10000));
+        increaseContribution(15000 + Manager.getCValue(5000));
     }
 
     @Override
     public int getMonthSalary() {
-        return 0;
+        return getSalary() + (getContribution() * interestRate) / 100;
     }
 
 }
