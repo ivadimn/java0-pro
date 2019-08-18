@@ -1,15 +1,15 @@
 package model;
 
-public class TopManager extends Manager {
+public class TopManager extends Manager  {
 
     public TopManager(String firstName, String secondName, String middleName, int  salary) {
         super(firstName, secondName, middleName, salary);
     }
 
     @Override
-    public int getMonthSalary() {
+    public int getMonthSalary(int income) {
         int monthSalary;
-        if (getTotalIncome() > 10_000_000) {
+        if (income > 10_000_000) {
             //премию как то посчитаем
             monthSalary = getSalary() + getContribution() / 4;
         }
@@ -19,9 +19,4 @@ public class TopManager extends Manager {
         return  monthSalary;
     }
 
-    //здесь увеличиваем сумму заключённых топ менеджером контрактов
-    @Override
-    public void setContribution() {
-        increaseContribution(200000 + Manager.getCValue(100000));
-    }
 }

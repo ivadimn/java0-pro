@@ -2,7 +2,7 @@ package model;
 
 import java.util.Random;
 
-public abstract class Manager implements Emploee {
+public abstract class Manager {
     private String firstName;
     private String secondName;
     private String middleName;
@@ -10,9 +10,6 @@ public abstract class Manager implements Emploee {
     //чистый оклад
     private int salary;
     private int contribution = 0;      //вклад каждого сотрудника в доход
-    private Company.Income income;     //для получения суммы дохода для расчёта зарплаты
-
-    private static final Random random = new Random();
 
     public Manager(String firstName, String secondName, String middleName, int salary) {
         this.firstName = firstName;
@@ -21,13 +18,6 @@ public abstract class Manager implements Emploee {
         this.salary = salary;
     }
 
-    public int getTotalIncome() {
-        return income.getIncome();
-    }
-
-    public void setIncomeInterface(Company.Income income) {
-        this.income = income;
-    }
 
     @Override
     public String toString() {
@@ -38,20 +28,8 @@ public abstract class Manager implements Emploee {
         return salary;
     }
 
-    //увеличивает вклад конкретного сотрудника
-    protected void increaseContribution(int contribute) {
-        this.contribution += contribute;
-    }
-
     public int getContribution() {
         return contribution;
     }
 
-    //генерирует случайное число для расчёта вклада и установки оклада
-    public static int getCValue(int maxVal) {
-        return random.nextInt(maxVal);
-    }
-
-    //расчёт вклада каждого сотрудника в результат
-    public abstract void setContribution();
 }

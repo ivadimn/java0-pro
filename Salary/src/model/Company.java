@@ -8,34 +8,22 @@ public class Company  {
 
     private String name;
     private int totalIncome;
-    private List<Manager> personal = new ArrayList<>();
-
-    public Income income = new Income() {
-        @Override
-        public int getIncome() {
-            return totalIncome;
-        }
-    };
+    private List<Emploee> personal = new ArrayList<>();
 
     public Company(String name) {
         this.name = name;
     }
 
-    public void recruit(Manager manager) {
-        manager.setIncomeInterface(income);
-        personal.add(manager);
+    public void recruit(Emploee emploee) {
+        personal.add(emploee);
     }
 
     public int calculateIncome() {
         totalIncome = 0;
-        for (Manager manager : personal) {
-            totalIncome += manager.getContribution();
+        for (Emploee emploee : personal) {
+            totalIncome += emploee.getContribution();
         }
         return totalIncome;
-    }
-
-    public static interface Income {
-        public int getIncome();
     }
 
     //имитация работы компании
