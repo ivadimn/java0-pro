@@ -9,13 +9,13 @@ public abstract class Manager {
 
     //чистый оклад
     private int salary;
-    private int contribution = 0;      //вклад каждого сотрудника в доход
 
     public Manager(String firstName, String secondName, String middleName, int salary) {
         this.firstName = firstName;
         this.secondName = secondName;
         this.middleName = middleName;
         this.salary = salary;
+
     }
 
 
@@ -26,10 +26,6 @@ public abstract class Manager {
 
     public int getSalary() {
         return salary;
-    }
-
-    public int getContribution() {
-        return contribution;
     }
 
 }

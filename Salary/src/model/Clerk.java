@@ -6,7 +6,7 @@ public class Clerk extends Manager implements Emploee {
         super(firstName, secondName, middleName, salary);
     }
     @Override
-    public int getMonthSalary(int income) {
+    public int getMonthSalary() {
         return getSalary();
     }
 
