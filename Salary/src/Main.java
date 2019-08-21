@@ -36,25 +36,20 @@ public class Main {
         //топ менеджеры
         for (int i = 0; i < 10; i++) {
             Emploee m = new TopManager(FNAMES[random.nextInt(8)], SNAMES[random.nextInt(8)],
-                    MNAMES[random.nextInt(8)],
-                    150000 + random.nextInt(11) * 5000,
-                    200000 + random.nextInt(11) * 5000);
+                    MNAMES[random.nextInt(8)]);
             company.recruit(m);
         }
         //продажники
         int numSales = 180 + random.nextInt(20);
         for (int i = 0; i < numSales + 1; i++) {
             Emploee m = new SalesManager(FNAMES[random.nextInt(8)], SNAMES[random.nextInt(8)],
-                    MNAMES[random.nextInt(8)],
-                    120000 + random.nextInt(11) * 5000,
-                    200000 + random.nextInt(11) * 5000);
+                    MNAMES[random.nextInt(8)]);
             company.recruit(m);
         }
         int numClerks = 50 + random.nextInt(20);
         for (int i = 0; i < numClerks + 1; i++) {
             Emploee m = new Clerk(FNAMES[random.nextInt(8)], SNAMES[random.nextInt(8)],
-                    MNAMES[random.nextInt(8)],
-                    60000 + random.nextInt(11) * 2000);
+                    MNAMES[random.nextInt(8)]);
             company.recruit(m);
         }
         return numClerks + numSales + 10;
@@ -87,7 +82,7 @@ public class Main {
         System.out.println(info);
         for (Emploee m : mlist) {
             System.out.println(m.getName() + " - оклад - " + m.getSalary() + ", за месяц - "
-                    + m.getMonthSalary() + " руб.");
+                    + m.getMonthSalary(company.getIncome()) + " руб.");
         }
         System.out.println();
     }
