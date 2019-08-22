@@ -24,6 +24,11 @@ public class Company  {
         income -= emploee.getContribution();
     }
 
+    public void dismiss(int index) {
+        income -= personal.get(index).getContribution();
+        personal.remove(index);
+    }
+
     public List<Emploee> getTopSalaryStaff(int count) {
         List<Emploee> top = new ArrayList<>();
         Collections.sort(personal, (m1, m2) -> {
