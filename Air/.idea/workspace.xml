@@ -1,7 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="00083593-25e3-4b87-b029-47f0e2d4cfd6" name="Default Changelist" comment="" />
+    <list default="true" id="00083593-25e3-4b87-b029-47f0e2d4cfd6" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Air/Loader.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Air/Loader.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Loader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Loader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Salary/out/production/Salary/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Salary/out/production/Salary/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Salary/out/production/Salary/model/Company.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Salary/out/production/Salary/model/Company.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Salary/out/production/Salary/model/Emploee.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Salary/out/production/Salary/model/Emploee.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Salary/out/production/Salary/model/Manager.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Salary/out/production/Salary/model/Manager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Salary/out/production/Salary/model/TopManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Salary/out/production/Salary/model/TopManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Salary/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Salary/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Salary/src/model/Company.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Salary/src/model/Company.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Salary/src/model/Emploee.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Salary/src/model/Emploee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Salary/src/model/Manager.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Salary/src/model/Manager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Salary/src/model/TopManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Salary/src/model/TopManager.java" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,7 +99,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>

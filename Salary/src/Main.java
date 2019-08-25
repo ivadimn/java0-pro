@@ -3,6 +3,7 @@ import model.*;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Random;
 
@@ -27,8 +28,12 @@ public class Main {
             company = new Company(name);
             System.out.println( name + " принимает сотрудников...");
             System.out.println("На работу принято - " + generateEmploee(company) + " сотрудников");
-            System.out.println("Посмотрим кто сколько заработал...");
-            show(company);
+            //System.out.println("Посмотрим кто сколько заработал...");
+            //show(company);
+            System.out.println("Зарплаты принятых в 2017 году");
+            company.getSalaryRecruitInYear(2017).stream()
+             .forEach(e -> System.out.println(e.getName() + " зарплата - " + e.getMonthSalary(company.getIncome())
+                    + " год - " + e.getYearRecruit()));;
         }
     }
 

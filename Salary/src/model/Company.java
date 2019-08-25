@@ -3,6 +3,7 @@ package model;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Company  {
 
@@ -51,7 +52,15 @@ public class Company  {
         return low;
     }
 
+    public List<Emploee> getSalaryRecruitInYear(int year) {
+        return personal.stream().filter(e -> e.getYearRecruit() == year).collect(Collectors.toList());
+    }
+
     public int getIncome() {
         return income;
+    }
+
+    public List<Emploee> getPersonal() {
+        return personal;
     }
 }
