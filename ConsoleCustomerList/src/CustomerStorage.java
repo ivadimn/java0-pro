@@ -33,15 +33,24 @@ public class CustomerStorage
 
     public void listCustomers()
     {
+        if (storage.isEmpty()) {
+            throw new RuntimeException("Список контактов пустой");
+        }
         storage.values().forEach(System.out::println);
     }
 
     public void removeCustomer(String name)
     {
+        if (storage.isEmpty()) {
+            throw new RuntimeException("Список контактов пустой");
+        }
         String[] components = name.split("\\s+");
         if (components.length != 2) {
             throw new IllegalArgumentException("Не достаточное количество аргументов комады 'remove'\n" +
                     "правильный формат команды 'remove': remove Василий Петров");
+        }
+        if (!storage.containsKey(name)) {
+            throw new IllegalArgumentException("Контакт с именем " + name + " отсутствует в списке");
         }
         storage.remove(name);
     }
