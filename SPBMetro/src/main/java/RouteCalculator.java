@@ -1,9 +1,7 @@
+import com.sun.source.tree.Tree;
 import core.Station;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class RouteCalculator
 {
@@ -19,18 +17,39 @@ public class RouteCalculator
 
     public List<Station> getShortestRoute(Station from, Station to)
     {
-        List<Station> route = getRouteOnTheLine(from, to);
+        /*List<Station> route = getRouteOnTheLine(from, to);
         if(route != null) {
             return route;
         }
-
         route = getRouteWithOneConnection(from, to);
         if(route != null) {
             return route;
         }
-
         route = getRouteWithTwoConnections(from, to);
-        return route;
+        return route;*/
+        HashMap<List<Station>, Double> routes = new HashMap<>();
+        List<Station> route = getRouteOnTheLine(from, to);
+        if(route != null) {
+            routes.put(route, calculateDuration(route));
+        }
+        route = getRouteWithOneConnection(from, to);
+        if(route != null) {
+            routes.put(route, calculateDuration(route));
+        }
+        route = getRouteWithTwoConnections(from, to);
+        if(route != null) {
+            routes.put(route, calculateDuration(route));
+        }
+        List<Station> shortRoute = null;
+        double minTime = Double.MAX_VALUE;
+        for (List<Station> list : routes.keySet()) {
+            double t = routes.get(list);
+            if (t < minTime) {
+                minTime = t;
+                shortRoute = list;
+            }
+        }
+        return shortRoute;
     }
 
     public static double calculateDuration(List<Station> route)
