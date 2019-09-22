@@ -1,17 +1,13 @@
 import core.Line;
 import core.Station;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
+import org.w3c.dom.ls.LSOutput;
 
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class Main
 {
@@ -19,41 +15,25 @@ public class Main
     private static Scanner scanner;
 
     private static StationIndex stationIndex;
-    private static Logger errorStationLogger;
-    private static Logger routeLogger;
-    private static Logger errorLogger;
-
 
     public static void main(String[] args)
     {
-
-        errorLogger = LogManager.getLogger("RuntimeErrorLogger");
-        errorStationLogger = LogManager.getLogger("ErrorStationLogger");
-        routeLogger = LogManager.getLogger("InfoRouteLogger");
-
         RouteCalculator calculator = getRouteCalculator();
+
         System.out.println("Программа расчёта маршрутов метрополитена Санкт-Петербурга\n");
         scanner = new Scanner(System.in);
         for(;;)
         {
-            try {
-                Station from = takeStation("Введите станцию отправления:");
-                Station to = takeStation("Введите станцию назначения:");
-                List<Station> route = calculator.getShortestRoute(from, to);
-                System.out.println("Маршрут:");
-                printRoute(route);
-                double timeTrip = RouteCalculator.calculateDuration(route);
-                System.out.println("Длительность: " + timeTrip +  " минут");
-                routeLogger.info("Cтанция отправления : " + from.getName() + " -> Cтанция назначения: " + to.getName()
-                        + " длительность поездки - " + timeTrip +  " минут");
-            }
-            catch (Exception ex) {
-                StringBuilder sb = new StringBuilder();
-                Arrays.stream(ex.getStackTrace()).forEach((st) -> sb.append("\t" + st + "\n"));
-                errorLogger.error("Ошибка: " + ex.getMessage() + "\n" + sb.toString());
-            }
-        }
+            Station from = takeStation("Введите станцию отправления:");
+            Station to = takeStation("Введите станцию назначения:");
 
+            List<Station> route = calculator.getShortestRoute(from, to);
+            System.out.println("Маршрут:");
+            printRoute(route);
+
+            System.out.println("Длительность: " +
+                RouteCalculator.calculateDuration(route) + " минут");
+        }
     }
 
     private static RouteCalculator getRouteCalculator()
@@ -92,7 +72,6 @@ public class Main
             if(station != null) {
                 return station;
             }
-            errorStationLogger.error("Станция не найдена :( " + line);
             System.out.println("Станция не найдена :(");
         }
     }
@@ -115,9 +94,7 @@ public class Main
             parseConnections(connectionsArray);
         }
         catch(Exception ex) {
-            StringBuilder sb = new StringBuilder();
-            Arrays.stream(ex.getStackTrace()).forEach((st) -> sb.append("\t" + st + "\n"));
-            errorLogger.error("Ошибка: " + ex.getMessage() + "\n" + sb.toString());
+            ex.printStackTrace();
         }
     }
 
@@ -142,6 +119,11 @@ public class Main
                 connectionStations.add(station);
             });
             stationIndex.addConnection(connectionStations);
+        });
+        TreeMap<Station, TreeSet<Station>> connections = stationIndex.getConnections();
+        connections.forEach((st, conns) -> {
+            System.out.println(st.getLine() + " - " + st.getName());
+            conns.forEach(cst -> System.out.println("\t" + cst.getLine() + " " + cst.getName()));
         });
     }
 
@@ -181,9 +163,7 @@ public class Main
             lines.forEach(line -> builder.append(line));
         }
         catch (Exception ex) {
-            StringBuilder sb = new StringBuilder();
-            Arrays.stream(ex.getStackTrace()).forEach((st) -> sb.append("\t" + st + "\n"));
-            errorLogger.error("Ошибка: "  + ex.getMessage() + "\n" + sb.toString());
+            ex.printStackTrace();
         }
         return builder.toString();
     }

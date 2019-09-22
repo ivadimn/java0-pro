@@ -70,4 +70,8 @@ public class StationIndex
         }
         return new TreeSet<>();
     }
+
+    public TreeMap<Station, TreeSet<Station>> getConnections() {
+        return connections;
+    }
 }

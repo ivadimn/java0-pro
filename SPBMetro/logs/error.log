@@ -1,0 +1,25 @@
+2019-09-22 20:27:30.533 [main] ERROR RuntimeErrorLogger - Ошибка: src/main/resources/map.json
+	java.base/sun.nio.fs.UnixException.translateToIOException(UnixException.java:92)
+	java.base/sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:111)
+	java.base/sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:116)
+	java.base/sun.nio.fs.UnixFileSystemProvider.newByteChannel(UnixFileSystemProvider.java:215)
+	java.base/java.nio.file.Files.newByteChannel(Files.java:370)
+	java.base/java.nio.file.Files.newByteChannel(Files.java:421)
+	java.base/java.nio.file.spi.FileSystemProvider.newInputStream(FileSystemProvider.java:420)
+	java.base/java.nio.file.Files.newInputStream(Files.java:155)
+	java.base/java.nio.file.Files.newBufferedReader(Files.java:2838)
+	java.base/java.nio.file.Files.readAllLines(Files.java:3327)
+	java.base/java.nio.file.Files.readAllLines(Files.java:3367)
+	Main.getJsonFile(Main.java:180)
+	Main.createStationIndex(Main.java:106)
+	Main.getRouteCalculator(Main.java:61)
+	Main.main(Main.java:34)
+
+2019-09-22 20:27:30.537 [main] ERROR RuntimeErrorLogger - Ошибка: null
+	org.json.simple.parser.JSONParser.parse(JSONParser.java:257)
+	org.json.simple.parser.JSONParser.parse(JSONParser.java:81)
+	org.json.simple.parser.JSONParser.parse(JSONParser.java:75)
+	Main.createStationIndex(Main.java:106)
+	Main.getRouteCalculator(Main.java:61)
+	Main.main(Main.java:34)
+

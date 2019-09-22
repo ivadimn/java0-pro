@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration status="WARN">
+    <appenders>
+
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+        </Console>
+
+        <File name="ErrorStation" fileName="logs/errorstation.log" immediateFlush="true">
+            <PatternLayout pattern="%d{yyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+        </File>
+        <File name="InfoRoute" fileName="logs/inforoute.log" immediateFlush="true">
+            <PatternLayout pattern="%d{yyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+        </File>
+        <File name="RuntimeError" fileName="logs/error.log" immediateFlush="true">
+            <PatternLayout pattern="%d{yyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+        </File>
+
+    </appenders>
+    <loggers>
+
+        <logger name="RuntimeErrorLogger" level="info" additivity="false" >
+            <appender-ref ref="RuntimeError"/>
+        </logger>
+        <logger name="ErrorStationLogger" level="info" additivity="false" >
+            <appender-ref ref="ErrorStation"/>
+        </logger>
+        <logger name="InfoRouteLogger" level="info" additivity="false" >
+            <appender-ref ref="InfoRoute"/>
+        </logger>
+
+        <Root level="debug" additivity="false">
+            <appender-ref  ref="Console"/>
+        </Root>
+    </loggers>
+</configuration>
