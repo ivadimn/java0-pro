@@ -113,7 +113,7 @@ public class RouteCalculator
                 }
             }
         }
-        return route;
+        return route.size() > 0 ? route : null;
     }
 
     private boolean isConnected(Station station1, Station station2)

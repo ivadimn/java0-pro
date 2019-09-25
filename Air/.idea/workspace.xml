@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="00083593-25e3-4b87-b029-47f0e2d4cfd6" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Air/Loader.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Air/Loader.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Loader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Loader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../LambdaExpressions/out/production/LambdaExpressions/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/../LambdaExpressions/out/production/LambdaExpressions/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../LambdaExpressions/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../LambdaExpressions/src/Main.java" afterDir="false" />
-    </list>
+    <list default="true" id="00083593-25e3-4b87-b029-47f0e2d4cfd6" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,7 +34,7 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../SPBMetroold" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
