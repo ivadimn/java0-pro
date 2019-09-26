@@ -11,23 +11,27 @@ public class Main {
         String pathFrom = reader.readLine();
         System.out.println("Введите путь к папке куда будут копироваться файлы : ");
         String pathTo = reader.readLine();
-        //copyFiles(pathFrom, pathTo);
-        copyFiles2(pathFrom, pathTo);
+        copyFiles(pathFrom, pathTo);
+        //copyFiles2(pathFrom, pathTo);
     }
 
 
     // копирование с использование пакета nio
     public static void copyFiles(String source, String target) throws IOException {
+        File[] fileList = null;
         if (!Files.exists(Paths.get(source))) {
             System.out.println("Нет такого файла или каталога : " + source);
             return;
         }
+        if (Files.isDirectory(Paths.get(source))) {
+            fileList = new File(source).listFiles();
+        }
+
         if (!Files.exists(Paths.get(target))) {
             Files.createDirectories(Paths.get(target));
         }
 
         if (Files.isDirectory(Paths.get(source))) {
-            File[] fileList = new File(source).listFiles();
             for (File f : fileList) {
                 if (f.isDirectory()) {
                     copyFiles(f.getPath(), target + "/" + f.getName());
@@ -51,12 +55,16 @@ public class Main {
 
     //другой способ без использования пакета nio
     public static void copyFiles2(String source, String target) throws IOException {
-
+        File[] fileList = null;
         File fileSource = new File(source);
         if (!fileSource.exists()) {
             System.out.println("Нет такого файла или каталога: " + source);
             return;
         }
+        if (fileSource.isDirectory()) {
+            fileList = fileSource.listFiles();
+        }
+
         File fileTarget = new File(target);
         if (!fileTarget.exists()) {
             //fileTarget.mkdir();
@@ -67,7 +75,6 @@ public class Main {
         }
 
         if (fileSource.isDirectory()) {
-            File[] fileList = fileSource.listFiles();
             for (File f : fileList) {
                 if (f.isDirectory()) {
                     copyFiles2(f.getPath(), target + "/" + f.getName());

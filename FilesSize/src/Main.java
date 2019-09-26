@@ -15,8 +15,8 @@ public class Main  {
         String path = reader.readLine();
         File folder = new File(path);
         double size = calculateFolderSize(folder);
-        String strSize;
-        if (size >= 1_099_511_627_776L) {
+        String strSize = SizeConverter((long) size);
+        /*if (size >= 1_099_511_627_776L) {
             size /= 1_099_511_627_776L;
             strSize = decimalFormat.format(size) + " Tbyte";
         }
@@ -34,7 +34,7 @@ public class Main  {
         }
         else {
             strSize = String.format("%d", (int)size) + " byte";
-        }
+        }*/
 
         System.out.println("Размер папки: " + folder + " с подпапками = " + strSize);
     }
@@ -52,5 +52,12 @@ public class Main  {
             }
         }
         return fsize;
+    }
+
+    private static String SizeConverter(long size){
+        if (size < 1024) return size + " Б";
+        int exp = (int) (Math.log(size) / (Math.log(1024)));
+        char unitsPrefix = "КМГТПЭ".charAt(exp - 1);
+        return String.format("%.2f %sБ", size / Math.pow(1024, exp), unitsPrefix);
     }
 }
