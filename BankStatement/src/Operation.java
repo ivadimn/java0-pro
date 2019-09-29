@@ -1,4 +1,11 @@
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.Locale;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Operation {
     private String typeAccout;
@@ -7,23 +14,37 @@ public class Operation {
     private Date dateOperation;
     private String wiring;
     private String description;
+    private String shortDescription;
     private double prihod;
     private double rashod;
 
-    public Operation(String typeAccout, String account, String currency, Date dateOperation, String wiring,
-                     String description, double prihod, double rashod) {
+    private final DateFormat format = new SimpleDateFormat("dd.MM.yy");
+
+    public Operation(String typeAccout, String account, String currency, String dateOperation, String wiring,
+                     String description, String prihod, String rashod) throws ParseException {
         this.typeAccout = typeAccout;
         this.account = account;
         this.currency = currency;
-        this.dateOperation = dateOperation;
+        this.dateOperation = format.parse(dateOperation);
         this.wiring = wiring;
         this.description = description;
-        this.prihod = prihod;
-        this.rashod = rashod;
+        this.prihod = Double.parseDouble(prihod);
+        this.rashod = Double.parseDouble(rashod);
+        this.shortDescription = setShortDescription();
     }
 
     public String getDescription() {
         return description;
+    }
+    public String getShortDescription() {
+        return shortDescription;
+    }
+
+    public String setShortDescription() {
+        Pattern p = Pattern.compile("\\s{4,}");
+        Matcher m = p.matcher(this.description);
+        String[] ds =  m.replaceAll(";").split(";");
+        return ds[1];
     }
 
     public double getPrihod() {
@@ -32,5 +53,11 @@ public class Operation {
 
     public double getRashod() {
         return rashod;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("%s %s %s %s %s %s %s %s", typeAccout, account, currency,
+                format.format(dateOperation), wiring, description, String.valueOf(prihod), String.valueOf(rashod));
     }
 }
