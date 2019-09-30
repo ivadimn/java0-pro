@@ -44,7 +44,15 @@ public class Operation {
         Pattern p = Pattern.compile("\\s{4,}");
         Matcher m = p.matcher(this.description);
         String[] ds =  m.replaceAll(";").split(";");
-        return ds[1];
+        //p = Pattern.compile("\\\\[\\sA-Za-z]+[\\s]*[A-Za-z>\\s_\\d]+$");
+        p = Pattern.compile("[\\\\/]{1}[A-Za-z>\\s_\\d]+$");
+        m = p.matcher(ds[1]);
+        if (m.find()) {
+            return m.group().substring(1);
+        }
+        else {
+            return ds[1];
+        }
     }
 
     public double getPrihod() {
