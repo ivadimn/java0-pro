@@ -1,5 +1,6 @@
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import javax.imageio.ImageIO;
@@ -15,10 +16,16 @@ public class Main {
         URL url = new URL(PATH);
         Document doc = Jsoup.parse(url, 10000);
         Elements elements = doc.select("img");
-        elements.forEach(e -> getImage(e.attr("src")));
+        for (Element e : elements) {
+            String src = e.attr("src");
+            if (!src.contains("http")) {
+                src = PATH + src;
+            }
+            saveImage(src);
+        }
     }
 
-    public static void getImage(String path) {
+    public static void saveImage(String path) {
         try {
             URL url = new URL(path);
             InputStream in = new BufferedInputStream(url.openStream());
