@@ -12,9 +12,11 @@ import java.net.URL;
 
 public class Main {
     public static final String PATH = "https://lenta.ru/";
+    public static final String PATH1 = "https://ru.wikipedia.org/wiki/Список_станций_Московского_метрополитена";
+
     public static void main(String[] args) throws IOException {
-        URL url = new URL(PATH);
-        Document doc = Jsoup.parse(url, 10000);
+        URL url = new URL(PATH1);
+        /*Document doc = Jsoup.parse(url, 10000);
         Elements elements = doc.select("img");
         for (Element e : elements) {
             String src = e.attr("src");
@@ -22,7 +24,8 @@ public class Main {
                 src = PATH + src;
             }
             saveImage(src);
-        }
+        }*/
+        parseMetro(url);
     }
 
     public static void saveImage(String path) {
@@ -43,5 +46,14 @@ public class Main {
         catch (IOException ex) {
             System.out.println("Не удалось получить изображение = " + ex.getMessage());
         }
+    }
+
+    public static void parseMetro(URL url) throws IOException {
+        Document doc = Jsoup
+                        .connect(PATH1)
+                        .maxBodySize(0)
+                        .get();
+        Elements elements = doc.select("table.standard");
+        System.out.println(elements.size());
     }
 }
