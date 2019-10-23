@@ -6,11 +6,13 @@ import java.util.List;
 public class Line implements Comparable<Line>
 {
     private double number;
+    private String originaNumber;
     private String name;
     private List<Station> stations;
 
-    public Line(double number, String name)
+    public Line(double number, String name, String originaNumber)
     {
+        this.originaNumber = originaNumber;
         this.number = number;
         this.name = name;
         stations = new ArrayList<>();
@@ -19,6 +21,10 @@ public class Line implements Comparable<Line>
     public double getNumber()
     {
         return number;
+    }
+
+    public String getOriginaNumber() {
+        return originaNumber;
     }
 
     public String getName()

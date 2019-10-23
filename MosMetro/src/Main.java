@@ -115,7 +115,7 @@ public class Main {
         Elements eTitles = td.select("span.sortkey + span[title]");
         for (int i = 0; i < eSortKeys.size() - 1; i++) {
             ll.add(new Line(generateNumber(eSortKeys.get(i).text()),
-                    eTitles.get(i).attr("title")));
+                    eTitles.get(i).attr("title"), eSortKeys.get(i).text()));
         }
         return ll;
     }
