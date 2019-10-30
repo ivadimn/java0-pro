@@ -40,6 +40,6 @@ public class Station implements Comparable<Station>
     @Override
     public String toString()
     {
-        return String.format("%.1f - %s", line.getNumber(), name);
+        return String.format("%s - %s", line.getNumber(), name);
     }
 }
