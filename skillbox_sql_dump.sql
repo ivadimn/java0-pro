@@ -16,7 +16,7 @@
 
 DROP TABLE IF EXISTS `Courses`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
+ SET character_set_client = utf8 ;
 CREATE TABLE `Courses` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(500) DEFAULT NULL,
@@ -30,7 +30,7 @@ CREATE TABLE `Courses` (
   PRIMARY KEY (`id`),
   KEY `teacher_idx` (`teacher_id`),
   CONSTRAINT `teacher` FOREIGN KEY (`teacher_id`) REFERENCES `Teachers` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=47 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=47 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -49,13 +49,13 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `PurchaseList`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
+ SET character_set_client = utf8 ;
 CREATE TABLE `PurchaseList` (
   `student_name` varchar(500) DEFAULT NULL,
   `course_name` varchar(500) DEFAULT NULL,
   `price` int(11) DEFAULT NULL,
   `subscription_date` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -74,14 +74,14 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `Students`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
+ SET character_set_client = utf8 ;
 CREATE TABLE `Students` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(45) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT ' ',
   `age` int(10) unsigned DEFAULT NULL COMMENT ' ',
   `registration_date` datetime NOT NULL COMMENT ' ',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=101 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=101 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -100,7 +100,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `Subscriptions`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
+ SET character_set_client = utf8 ;
 CREATE TABLE `Subscriptions` (
   `student_id` int(10) unsigned NOT NULL,
   `course_id` int(10) unsigned NOT NULL,
@@ -109,7 +109,7 @@ CREATE TABLE `Subscriptions` (
   KEY `course_idx` (`course_id`),
   CONSTRAINT `course` FOREIGN KEY (`course_id`) REFERENCES `Courses` (`id`),
   CONSTRAINT `student` FOREIGN KEY (`student_id`) REFERENCES `Students` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -128,14 +128,14 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `Teachers`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
+ SET character_set_client = utf8 ;
 CREATE TABLE `Teachers` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(45) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '  \n',
   `salary` int(10) unsigned DEFAULT NULL COMMENT '  ',
   `age` int(10) unsigned DEFAULT NULL COMMENT ' ',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --

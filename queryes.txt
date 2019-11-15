@@ -1,0 +1,11 @@
+//Количество покупок в месяц
+Select course_id, COUNT(Student_id) / COUNT(Distinct MONTH(subscription_date)) as buy_per_month 
+FRom Subscriptions GROUP BY course_id Order by course_id;
+
+
+Select course_id, year(subscription_date) as year_num, count(Distinct MONTH(subscription_date)) as month_num,  COUNT(Student_id) as count_buy 
+FRom Subscriptions GROUP BY course_id, year_num  Order by course_id;
+
+Select course_id, year(subscription_date) as year_num, 
+COUNT(Student_id) / count(Distinct MONTH(subscription_date)) as count_buy 
+FRom Subscriptions GROUP BY course_id, year_num  Order by course_id;
