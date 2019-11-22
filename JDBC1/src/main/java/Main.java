@@ -5,7 +5,7 @@ public class Main {
     public static void main(String[] args) {
         String url = "jdbc:mysql://localhost:3306/skillbox";
         String user = "root";
-        String pass = "7922448";
+        String pass = "4997922448";
         String query = "Select s.course_id, c.name, \n" +
                 "COUNT(s.course_id) / count(Distinct MONTH(s.subscription_date)) as count_buy \n" +
                 "From Subscriptions as s JOIN Courses as c ON c.id = s.course_id \n" +
