@@ -1,15 +1,25 @@
+import org.hibernate.annotations.GenericGenerator;
+
+import javax.annotation.processing.Generated;
+import javax.persistence.*;
 import javax.swing.text.DateFormatter;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+@Entity
+@Table(name = "Students")
 public class Student {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
     private int age;
-    private Date registrationDate;
 
-    private final DateFormat format = new SimpleDateFormat("dd.MM.yyyy");
+    @Temporal(value = TemporalType.TIMESTAMP)
+    @Column(name = "registration_date")
+    private Date registrationDate;
 
     public Student() {
         //
@@ -49,6 +59,6 @@ public class Student {
 
     @Override
     public String toString() {
-        return String.format("%s, возраст: %d, дата регистрации: %s", name, age, format.format(registrationDate));
+        return String.format("%s, возраст: %d, дата регистрации: %s", name, age, new SimpleDateFormat("dd.MM.yyyy").format(registrationDate));
     }
 }
