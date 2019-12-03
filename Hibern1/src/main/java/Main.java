@@ -19,6 +19,9 @@ public class Main {
         Student student = session.get(Student.class, 1);
         System.out.println(student);
         student.getCourseList().forEach(c -> System.out.println("\t" + c.getName()));
+        System.out.println("***************************************************");;
+        List<PurchaseList> purchaseList = session.createQuery("from PurchaseList").list();
+        purchaseList.forEach(System.out::println);
 
         session.close();
     }
