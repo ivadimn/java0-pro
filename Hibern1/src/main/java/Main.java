@@ -1,4 +1,5 @@
 import org.hibernate.Session;
+import org.w3c.dom.ls.LSOutput;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,7 +15,12 @@ public class Main {
 
         System.out.println("***************************************************");
         coursesList = (List<Course>) session.createQuery("from Course").list();
-        coursesList.forEach(c -> System.out.println(c.getName()));
+        coursesList.forEach(c ->
+            {
+                System.out.println(c.getName());
+                System.out.println("Список студентов");
+                c.getStudentList().forEach(s -> System.out.println("\t" + s.getName()));
+            });
 
         System.out.println("***************************************************");
         Course course = session.get(Course.class, 1);

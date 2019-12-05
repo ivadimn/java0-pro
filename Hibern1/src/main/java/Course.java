@@ -1,6 +1,7 @@
 import org.hibernate.id.IntegralDataTypeHolder;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "Courses")
@@ -21,8 +22,15 @@ public class Course {
     @ManyToOne(cascade = CascadeType.ALL)
     private Teacher teacher;
 
-    @Column(name = "students_count")
-    private Integer studentsCount;
+    //@Column(name = "students_count")
+    //private Integer studentsCount;
+
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "Subscriptions",
+        joinColumns = {@JoinColumn(name = "course_id")},
+        inverseJoinColumns = {@JoinColumn(name = "student_id")})
+    private List<Student> studentList;
 
     private int price;
 
@@ -77,13 +85,13 @@ public class Course {
         this.teacher = teacher;
     }
 
-    public int getStudentsCount() {
+    /*public int getStudentsCount() {
         return studentsCount;
     }
 
     public void setStudentsCount(Integer studentsCount) {
         this.studentsCount = studentsCount;
-    }
+    }*/
 
     public int getPrice() {
         return price;
@@ -101,8 +109,11 @@ public class Course {
         this.pricePerHour = pricePerHour;
     }
 
+    public List<Student> getStudentList() {
+        return studentList;
+    }
 
-
-
-
+    public void setStudentList(List<Student> studentList) {
+        this.studentList = studentList;
+    }
 }
