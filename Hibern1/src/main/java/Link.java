@@ -13,5 +13,15 @@ public class Link {
     public Link(LinkKey linkKey) {
         this.linkKey = linkKey;
     }
+    public Link(Course c, Student s) {
+        this.linkKey = new LinkKey(c, s);
+    }
 
+    public LinkKey getLinkKey() {
+        return linkKey;
+    }
+
+    public void setLinkKey(LinkKey linkKey) {
+        this.linkKey = linkKey;
+    }
 }
