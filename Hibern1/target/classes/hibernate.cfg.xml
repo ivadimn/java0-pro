@@ -22,13 +22,14 @@
         <property name="hibernate.connection.pool_size">10</property>
         <property name="show_sql">true</property>
         <property name="current_session_context_class">thread</property>
-        <property name="hbm2ddl.auto">validate</property>
+        <property name="hbm2ddl.auto">update</property>
 
         <mapping class="Student"/>
         <mapping class="Course"/>
         <mapping class="Teacher"/>
         <mapping class="PurchaseList"/>
         <mapping class="Subscription"/>
+        <mapping class="Link"/>
 
     </session-factory>
 

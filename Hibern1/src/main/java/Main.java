@@ -7,10 +7,10 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
 
-        List<Student> studentList;
-        List<Course> coursesList;
+        //List<Student> studentList;
+        //List<Course> coursesList;
         Session session = Util.getSessionFactory().openSession();
-        studentList = (List<Student>)session.createQuery("from Student").list();
+        /*studentList = (List<Student>)session.createQuery("from Student").list();
         studentList.forEach(System.out::println);
 
         System.out.println("***************************************************");
@@ -35,7 +35,12 @@ public class Main {
 
         System.out.println("***************************************************");
         List<Subscription> subscriptionList = session.createQuery("from Subscription").list();
-        subscriptionList.forEach(System.out::println);
+        subscriptionList.forEach(System.out::println); */
+
+        Student s = session.get(Student.class, 1);
+        Course c = session.get(Course.class, 2);
+        System.out.println(s.getName());
+        System.out.println(c.getName());
 
         session.close();
     }
