@@ -47,14 +47,18 @@ public class Main {
         //String hql = "Select c, s From Course c, Student s, PurchaseList p Where c.getName().equals"
         //String hql = "Select c From Course c, PurchaseList p Where c.getName().equals(p.getPurchaseKey().getCourseName())";
         session.beginTransaction();
-        String hql = "Insert into Link (linkKey) Select new Link(c, s).linkKey From Course c, Student s, PurchaseList p Where c.name = p.purchaseKey.courseName and " +
+        //String hql = "Insert into Link (course, student) Select c, s From Course c, Student s, PurchaseList p Where c.name = p.purchaseKey.courseName and " +
+        //        "s.name = p.purchaseKey.studentName";
+        String hql = "Select new Link(c, s) From Course c, Student s, PurchaseList p Where c.name = p.purchaseKey.courseName and " +
                 "s.name = p.purchaseKey.studentName";
-        session.createQuery(hql).executeUpdate();
-        /*List<Link> linkList = query.getResultList();
-        linkList.forEach(ls -> System.out.println(ls.getLinkKey().getCourse().getName() + " - "
-                + ls.getLinkKey().getStudent().getName()));*/
+        Query query = session.createQuery(hql);
+        List<Link> linkList = query.getResultList();
+        linkList.forEach(ls -> System.out.println(ls.getCourse().getName() + " - "
+                + ls.getStudent().getName()));
 
-        //System.out.println(linkList.size());
+        Link  l = linkList.get(0);
+        session.persist(l);
+        System.out.println(linkList.size());
         session.getTransaction().commit();
         session.close();
     }
