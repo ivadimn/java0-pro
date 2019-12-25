@@ -36,6 +36,7 @@ public class ImageResizer extends Thread {
 
                 int widthStep = image.getWidth() / newWidth;
                 int heightStep = image.getHeight() / newHeight;
+                
 
                 for (int x = 0; x < newWidth; x++)
                 {
