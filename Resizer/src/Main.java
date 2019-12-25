@@ -11,7 +11,7 @@ public class Main {
         System.out.println("Количество ядер процессора - " + numProcessors);
         File srcDir = new File(srcFolder);
         File[] files = srcDir.listFiles();
-        if (files.length % numProcessors != 0) {
+        /*if (files.length % numProcessors != 0) {
             numProcessors -= 1;
         }
         int lenArray = files.length / numProcessors;
@@ -27,7 +27,11 @@ public class Main {
             File[] f = new File[ostatok];
             System.arraycopy(files, startPos, f, 0, ostatok);
             new ImageResizer(newWidth, f, dstFolder).start();
-        }
+        }*/
+        long currTime =  System.currentTimeMillis();
+        ImageResizerAffin resizerAffin = new ImageResizerAffin(newWidth, files, dstFolder);
+        resizerAffin.resize();
+        System.out.println("Time executing = " + (System.currentTimeMillis() - currTime));
 
     }
 
