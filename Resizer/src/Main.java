@@ -29,9 +29,11 @@ public class Main {
             new ImageResizer(newWidth, f, dstFolder).start();
         }*/
         long currTime =  System.currentTimeMillis();
-        ImageResizerAffin resizerAffin = new ImageResizerAffin(newWidth, files, dstFolder);
-        resizerAffin.resize();
+        ImageResizerBiline resizerBiline = new ImageResizerBiline(newWidth, files, dstFolder);
+        resizerBiline.resize();
         System.out.println("Time executing = " + (System.currentTimeMillis() - currTime));
+
+
 
     }
 

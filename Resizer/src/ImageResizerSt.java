@@ -5,12 +5,12 @@ import java.awt.image.AffineTransformOp;
 import java.awt.image.BufferedImage;
 import java.io.File;
 
-public class ImageResizerAffin {
+public class ImageResizerSt {
     private int newWidth;
     private File[] files;
     private String dstFolder;
 
-    public ImageResizerAffin(int newWidth, File[] files, String dstFolder) {
+    public ImageResizerSt(int newWidth, File[] files, String dstFolder) {
         this.newWidth = newWidth;
         this.files = files;
         this.dstFolder = dstFolder;
@@ -26,7 +26,6 @@ public class ImageResizerAffin {
                     continue;
                 }
 
-                int newWidth = 300;
                 int newHeight = (int) Math.round(
                         image.getHeight() / (image.getWidth() / (double) newWidth)
                 );
@@ -36,13 +35,6 @@ public class ImageResizerAffin {
                 double scaleX = newWidth / (double) image.getWidth();
                 double scaleY = newHeight / (double) image.getHeight();
 
-
-                /*AffineTransform transform = new AffineTransform();
-                transform.scale(scaleX, scaleY);
-
-                AffineTransformOp scaleOp =
-                        new AffineTransformOp(transform, AffineTransformOp.TYPE_BILINEAR);
-                newImage = scaleOp.filter(image, newImage);*/
 
                 Graphics2D graphics2D = newImage.createGraphics();
                 AffineTransform xform = AffineTransform.getScaleInstance(scaleX, scaleY);
