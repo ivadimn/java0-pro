@@ -1,6 +1,8 @@
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.math.BigDecimal;
+import java.math.BigInteger;
 
 public class ImageResizer  {
     private int newWidth;
@@ -84,15 +86,21 @@ public class ImageResizer  {
                 k3 = t * u;
                 k4 = (1 - t) * u;
 
+
                 /* Окрестные пиксели: a[i][j] */
                 //System.out.println(h + "   " + w);
+                //p1 = new BigInteger(Integer.toUnsignedString(image.getRGB(w, h), 16));
+                //p2 = new BigInteger(Integer.toUnsignedString(image.getRGB(w + 1, h), 16));
+                //p3 = new BigInteger(Integer.toUnsignedString(image.getRGB(w + 1, h + 1), 16));
+                //p4 = new BigInteger(Integer.toUnsignedString(image.getRGB(w, h + 1), 16));
                 p1 = image.getRGB(w, h) & 0xffffffff;
                 p2 = image.getRGB(w + 1, h) & 0xffffffff;
                 p3 = image.getRGB(w + 1, h + 1) & 0xffffffff;
-                p4 = image.getRGB(w + 1, h) & 0xffffffff;
+                p4 = image.getRGB(w, h + 1) & 0xffffffff;
 
                 /* Компоненты */
-                blue = (int) (p1 * k1 + p2 * k2 + p3 * k3 + p4 * k4);
+
+                blue = (int) (p1* k1 + p2 * k2 + p3 * k3 + p4 * k4);
                 green = (int) ((p1 >> 8) * k1 + (p2 >> 8) * k2 + (p3 >> 8) * k3 + (p4 >> 8) * k4);
                 red = (int)((p1 >> 16) * k1 + (p2 >> 16) * k2 + (p3 >> 16) * k3 + (p4 >> 16) * k4);
 

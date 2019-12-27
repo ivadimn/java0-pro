@@ -1,6 +1,11 @@
+import java.io.File;
 import java.math.BigInteger;
 
 public class Main {
+
+    public static final String srcFolder = "/home/vadim/images";
+    public static final String dstFolder = "/home/vadim/newimages";
+    public static final  int newWidth = 300;
 
     public static void main(String[] args) {
 
@@ -10,6 +15,16 @@ public class Main {
         System.out.println(dec);
         System.out.println(ldec);
         System.out.println(bi);
+        long startTime = System.currentTimeMillis();
+
+        File srcDir = new File(srcFolder);
+        File[] files = srcDir.listFiles();
+        ImageResizer im = new ImageResizer(newWidth, files, dstFolder);
+        im.resize();
+
+        System.out.println("Общее время работы = " + (System.currentTimeMillis() - startTime) + " ms");
+
+
     }
 
 }
