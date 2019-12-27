@@ -1,11 +1,11 @@
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.geom.AffineTransform;
-import java.awt.image.AffineTransformOp;
 import java.awt.image.BufferedImage;
 import java.io.File;
 
-public class ImageResizerSt {
+public class ImageResizerSt  extends Thread {
+
     private int newWidth;
     private File[] files;
     private String dstFolder;
@@ -16,7 +16,8 @@ public class ImageResizerSt {
         this.dstFolder = dstFolder;
     }
 
-    public void resize() {
+    @Override
+    public void run() {
         try
         {
             for(File file : files)

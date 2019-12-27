@@ -1,15 +1,13 @@
 import javax.imageio.ImageIO;
-import java.awt.*;
-import java.awt.geom.AffineTransform;
 import java.awt.image.BufferedImage;
 import java.io.File;
 
-public class ImageResizerBiline {
+public class ImageResizer  {
     private int newWidth;
     private File[] files;
     private String dstFolder;
 
-    public ImageResizerBiline(int newWidth, File[] files, String dstFolder) {
+    public ImageResizer(int newWidth, File[] files, String dstFolder) {
         this.newWidth = newWidth;
         this.files = files;
         this.dstFolder = dstFolder;
@@ -31,9 +29,6 @@ public class ImageResizerBiline {
                 );
 
                 BufferedImage newImage = doResize(image, newWidth, newHeight);
-
-
-
                 File newFile = new File(dstFolder + "/" + file.getName());
                 ImageIO.write(newImage, "jpg", newFile);
 
