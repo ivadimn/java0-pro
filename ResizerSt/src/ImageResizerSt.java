@@ -1,3 +1,5 @@
+import org.imgscalr.Scalr;
+
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.geom.AffineTransform;
@@ -30,24 +32,12 @@ public class ImageResizerSt  extends Thread {
                 int newHeight = (int) Math.round(
                         image.getHeight() / (image.getWidth() / (double) newWidth)
                 );
-                BufferedImage newImage = new BufferedImage(
-                        newWidth, newHeight, BufferedImage.TYPE_INT_RGB);
 
-                double scaleX = newWidth / (double) image.getWidth();
-                double scaleY = newHeight / (double) image.getHeight();
-
-
-                Graphics2D graphics2D = newImage.createGraphics();
-                AffineTransform xform = AffineTransform.getScaleInstance(scaleX, scaleY);
-                graphics2D.setRenderingHint(RenderingHints.KEY_INTERPOLATION,
-                        RenderingHints.VALUE_INTERPOLATION_BICUBIC);
-                graphics2D.drawImage(image, xform, null);
+                BufferedImage newImage = Scalr.resize(image, Scalr.Method.ULTRA_QUALITY, Scalr.Mode.AUTOMATIC,
+                        newWidth, newHeight, Scalr.OP_ANTIALIAS);
 
                 File newFile = new File(dstFolder + "/" + file.getName());
                 ImageIO.write(newImage, "jpg", newFile);
-
-                graphics2D.dispose();
-
 
             }
             System.out.println(Thread.currentThread().getName() + " was finished");
