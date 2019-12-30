@@ -19,7 +19,7 @@ public class Main {
 
         File srcDir = new File(srcFolder);
         File[] files = srcDir.listFiles();
-        ImageResizer im = new ImageResizer(newWidth, files, dstFolder);
+        ImageResizerSt im = new ImageResizerSt(newWidth, files, dstFolder);
         im.resize();
 
         System.out.println("Общее время работы = " + (System.currentTimeMillis() - startTime) + " ms");
