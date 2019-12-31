@@ -1,17 +1,15 @@
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.geom.AffineTransform;
-import java.awt.image.AffineTransformOp;
 import java.awt.image.BufferedImage;
-import java.awt.image.BufferedImageOp;
 import java.io.File;
 
-public class ImageResizerSt {
+public class ImageResizeSt1 {
     private int newWidth;
     private File[] files;
     private String dstFolder;
 
-    public ImageResizerSt(int newWidth, File[] files, String dstFolder) {
+    public ImageResizeSt1(int newWidth, File[] files, String dstFolder) {
         this.newWidth = newWidth;
         this.files = files;
         this.dstFolder = dstFolder;
@@ -38,13 +36,9 @@ public class ImageResizerSt {
                         newWidth, newHeight, BufferedImage.TYPE_INT_RGB);
                 Graphics2D g2 = newImage.createGraphics();
 
-                if ( i % 2 == 0) {
-                    g2.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
-                }
-                else {
-                    g2.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BICUBIC);
-                }
-                g2.drawImage(image, 0, 0, newWidth, newHeight, null);
+                AffineTransform at = AffineTransform.getScaleInstance(newWidth / (double) image.getWidth(),
+                        newHeight / (double) image.getHeight());
+                g2.drawImage(image, at, null);
                 g2.dispose();
 
                 File newFile = new File(dstFolder + "/" + file.getName());
@@ -58,4 +52,5 @@ public class ImageResizerSt {
             ex.printStackTrace();
         }
     }
+
 }
