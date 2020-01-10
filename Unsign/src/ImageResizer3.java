@@ -15,8 +15,18 @@ public class ImageResizer3  {
         this.dstFolder = dstFolder;
     }
 
-    private BufferedImage resize(BufferedImage image, int width, int height, Object interpolation) {
-        
+    private BufferedImage resize(BufferedImage image, int width, int height, RenderingHints.Key key, Object interpolation) {
+
+        BufferedImage newImage = new BufferedImage(
+                width, height, BufferedImage.TYPE_INT_RGB);
+        Graphics2D g2 = newImage.createGraphics();
+
+        g2.setRenderingHint(key, interpolation);
+        AffineTransform at = AffineTransform.getScaleInstance(width / (double) image.getWidth(),
+                height / (double) image.getHeight());
+        g2.drawImage(image, at, null);
+        g2.dispose();
+        return newImage;
     }
 
     public void doResize() {
@@ -31,26 +41,19 @@ public class ImageResizer3  {
                     continue;
                 }
 
+                //int newHeight = (int) Math.round(
+                //        image.getHeight() / (image.getWidth() / ((double) newWidth * 2))
+                //);
+
+                BufferedImage newImage = resize(image, image.getWidth() / 2, image.getHeight() / 2,
+                        RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BICUBIC);
+
+
                 int newHeight = (int) Math.round(
-                        image.getHeight() / (image.getWidth() / (double) newWidth)
-                );
+                        newImage.getHeight() / (newImage.getWidth() / (double) newWidth));
 
-
-                BufferedImage newImage = new BufferedImage(
-                        newWidth, newHeight, BufferedImage.TYPE_INT_RGB);
-                Graphics2D g2 = newImage.createGraphics();
-
-                if ( i % 2 == 0) {
-                    g2.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
-                }
-                else {
-                    g2.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BICUBIC);
-                }
-                AffineTransform at = AffineTransform.getScaleInstance(newWidth / (double) image.getWidth(),
-                        newHeight / (double) image.getHeight());
-                //g2.drawImage(image, 0, 0, newWidth, newHeight, null);
-                g2.drawImage(image, at, null);
-                g2.dispose();
+                newImage = resize(newImage, newWidth, newHeight,
+                        RenderingHints.KEY_ALPHA_INTERPOLATION, RenderingHints.VALUE_ALPHA_INTERPOLATION_QUALITY);
 
                 File newFile = new File(dstFolder + "/" + file.getName());
                 ImageIO.write(newImage, "jpg", newFile);

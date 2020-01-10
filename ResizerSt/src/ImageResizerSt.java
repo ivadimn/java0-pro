@@ -33,7 +33,10 @@ public class ImageResizerSt  extends Thread {
                         image.getHeight() / (image.getWidth() / (double) newWidth)
                 );
 
-                BufferedImage newImage = Scalr.resize(image, Scalr.Method.ULTRA_QUALITY, Scalr.Mode.AUTOMATIC,
+                BufferedImage newImage = Scalr.resize(image, Scalr.Method.BALANCED, Scalr.Mode.AUTOMATIC,
+                        image.getWidth() / 2, image.getHeight() / 2, Scalr.OP_ANTIALIAS);
+
+                newImage = Scalr.resize(newImage, Scalr.Method.ULTRA_QUALITY, Scalr.Mode.AUTOMATIC,
                         newWidth, newHeight, Scalr.OP_ANTIALIAS);
 
                 File newFile = new File(dstFolder + "/" + file.getName());
