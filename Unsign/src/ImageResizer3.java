@@ -22,9 +22,10 @@ public class ImageResizer3  {
         Graphics2D g2 = newImage.createGraphics();
 
         g2.setRenderingHint(key, interpolation);
-        AffineTransform at = AffineTransform.getScaleInstance(width / (double) image.getWidth(),
-                height / (double) image.getHeight());
-        g2.drawImage(image, at, null);
+        g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+
+
+        g2.drawImage(image, 0, 0, width, height, null);
         g2.dispose();
         return newImage;
     }
