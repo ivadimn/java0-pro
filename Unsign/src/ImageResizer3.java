@@ -47,14 +47,14 @@ public class ImageResizer3  {
                 //);
 
                 BufferedImage newImage = resize(image, image.getWidth() / 2, image.getHeight() / 2,
-                        RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BICUBIC);
+                        RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_NEAREST_NEIGHBOR);
 
 
                 int newHeight = (int) Math.round(
                         newImage.getHeight() / (newImage.getWidth() / (double) newWidth));
 
                 newImage = resize(newImage, newWidth, newHeight,
-                        RenderingHints.KEY_ALPHA_INTERPOLATION, RenderingHints.VALUE_ALPHA_INTERPOLATION_QUALITY);
+                        RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_NEAREST_NEIGHBOR);
 
                 File newFile = new File(dstFolder + "/" + file.getName());
                 ImageIO.write(newImage, "jpg", newFile);

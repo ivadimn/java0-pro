@@ -20,6 +20,7 @@ public class ImageResizerSt  extends Thread {
 
     @Override
     public void run() {
+        System.out.println("Thread name - " + Thread.currentThread());
         try
         {
             for(File file : files)
