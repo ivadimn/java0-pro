@@ -10,19 +10,38 @@ public class Main {
 
     public static void main(String[] args) {
         openBank();
-        for (int i = 0; i < 20; i++) {
-            System.out.println(accNumbers.get(i));
-        }
+        doWork();
 
     }
 
-    public static void openBank() {
+    public static void doWork() {
+        for (int i = 0; i < 10; i++) {
+            new Thread(new Transfer()).start();
+        }
+    }
 
-        for (int i = 0; i < 10000; i++) {
+    public static void openBank() {
+        for (int i = 0; i < 4; i++) {
             String accNumber = String.valueOf(Math.abs(random.nextInt()));
             accNumbers.add(accNumber);
             Account account = new Account(accNumber, 30000 + random.nextInt(50000));
             bank.addAccount(account);
+        }
+    }
+
+    public static class Transfer implements Runnable {
+
+        @Override
+        public void run() {
+            for (int i = 0; i < 10; i++) {
+                String accFrom = accNumbers.get(random.nextInt(accNumbers.size() - 1));
+                String accTo = accNumbers.get(random.nextInt(accNumbers.size() - 1));
+                long amount = random.nextInt(52500);
+                if (!accFrom.equals(accTo)) {
+                    bank.transfer(accFrom, accTo, amount);
+                }
+            }
+
         }
     }
 

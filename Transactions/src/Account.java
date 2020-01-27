@@ -11,11 +11,11 @@ public class Account
         this.money = money;
     }
 
-    public void toDeposit(long summa) {
+    public synchronized void toDeposit(long summa) {
         money += summa;
     }
 
-    public long withdraw(long summa) {
+    public synchronized long withdraw(long summa) {
         if (money >= summa) {
             money -= summa;
             return summa;
@@ -23,7 +23,7 @@ public class Account
         return 0;
     }
 
-    public void block() {
+    public synchronized void block() {
         isBlocked.set(true);
     }
 
@@ -31,7 +31,7 @@ public class Account
         return accNumber;
     }
 
-    public long getMoney() {
+    public synchronized long getMoney() {
         return money;
     }
 

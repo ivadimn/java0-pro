@@ -20,7 +20,7 @@ public class Bank
      * метод isFraud. Если возвращается true, то делается блокировка
      * счетов (как – на ваше усмотрение)
      */
-    public void transfer(String fromAccountNum, String toAccountNum, long amount)
+    public synchronized void  transfer(String fromAccountNum, String toAccountNum, long amount)
     {
         Account accountFrom = accounts.get(fromAccountNum);
         Account accountTo = accounts.get(toAccountNum);
@@ -32,11 +32,18 @@ public class Bank
             System.out.println("Счёт № " + toAccountNum + " заблокирован!");
             return;
         }
+        System.out.println("*************************************************");
+        System.out.println("Остаток на счёте списания  до перевода " + fromAccountNum + " = " + accountFrom.getMoney());
+        System.out.println("Остаток на счёте зачисления  до перевода " + toAccountNum + " = " + accountTo.getMoney());
         long summa = accountFrom.withdraw(amount);
         if (summa > 0) {
             accountTo.toDeposit(summa);
+
             System.out.println("Деньги в сумме " + summa + " со счёта: "
                     + fromAccountNum + "на счёт: " + toAccountNum + " переведены!");
+            System.out.println("Остаток на счёте списания  после перевода " + fromAccountNum + " = " + accountFrom.getMoney());
+            System.out.println("Остаток на счёте зачисления  после перевода " + toAccountNum + " = " + accountTo.getMoney());
+            System.out.println("*************************************************");
             if (summa > 50000) {
                 try {
                     boolean isBlock = isFraud(fromAccountNum, toAccountNum, amount);
@@ -50,7 +57,8 @@ public class Bank
             }
         }
         else {
-            System.out.println("Недостаточно средств для перевода !");
+            System.out.println("Недостаточно средств для перевода суммы - " + amount);
+            System.out.println("*************************************************");
         }
     }
 
